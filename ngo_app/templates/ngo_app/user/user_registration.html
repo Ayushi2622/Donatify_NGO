@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+
+
+    {% include 'ngo_app/common/common_css.html' %}
+</head>
+
+<body style="background-color:#e9d2b7;">
+    <!-- navbar code starts -->
+    {% include 'ngo_app/common/header.html' %}
+    <!-- navbar code ends -->
+
+
+    <div class="main-div">
+        <div class="text-center" style="margin:auto;margin-top:20px">
+            <!-- <img src="{% static 'ngo_app/images/Registration Form.gif' %}" alt=""> -->
+             <h1 style="text-align: center; font-size:50px; "><b> Registration Form </b></h1>
+
+        </div>
+
+        <form method="post" action="/user_registration/" enctype="multipart/form-data">
+            {% csrf_token %}
+
+
+            <div class="div-form" style="width:30%;height:50%;justify-content: center;margin:auto;margin-top:30px;border:2px solid black; padding:20px;background-color:rgb(235, 95, 118); border-radius: 12px; padding-top:22px; box-shadow: 0 8px 16px rgb(0, 0, 0.8);">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-file-signature"></i> </span>
+                    <input type="text" class="form-control" placeholder="Enter Name here" name="name" required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-envelope"></i> </span>
+                    <input type="email" class="form-control" placeholder="Enter Email here" name="email" required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-key"></i> </span>
+                    <input type="password" class="form-control" placeholder="Enter Password here" name="password"
+                        required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="fa-solid fa-phone"></i> </span>
+                    <input type="number" class="form-control" placeholder="Enter Phone Number here" name="phone"
+                        required>
+                </div>
+
+
+                <div class="form-floating mb-3 mt-3">
+                    <input type="file" class="form-control" placeholder="Enter profile pic " name="profile_pic">
+                    <label for="profile">Enter Profile Pic here</label>
+                </div>
+
+
+
+                <div class="text-center">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    {% include 'ngo_app/common/footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+        </script>
+
+</body>
+
+</html>

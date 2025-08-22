@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health & Nutrition</title>
+    <style>
+        p {
+            /* font-family:cursive; */
+            text-align: justify;
+            padding: 10px;
+            font-size: 25px;
+        }
+
+        .image {
+            width: 90%;
+            height: 400px;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 20px;
+            /* box-shadow:0 0 5px 5px rgb(102, 8, 102); */
+            margin-left:65px;
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .flex-container {
+            display: flex;
+            width: 100%;
+            height: 550px;
+            /* background-color: rgb(207, 66, 207); */
+            flex-wrap: wrap;
+            padding-top: 25px;
+            gap: 40px;
+            padding-left: 40px;
+
+        }
+
+        .item-div {
+            width: 400px;
+            height: 500px;
+            background-color: lightpink;
+            /* margin-left: 20px; */
+            padding: 2px;
+            border: 2px solid black;
+            /* box-shadow:0 0 5px 5px rgb(102, 8, 102); */
+            /* font-family:cursive; */
+            border-radius: 20px;
+
+
+        }
+    </style>
+
+
+
+    {% include 'ngo_app/common/common_css.html' %}
+</head>
+
+<body style="background-color:#e9d2b7;">
+    <div class="main-div">
+
+        <!-- navbar code starts -->
+        {% include 'ngo_app/common/header.html' %}
+        <!-- navbar code ends -->
+        <h1 style="text-align: center;"><b>Health & Nutrition</b></h1>
+        <h2 style="text-align:center">Right To Survival</h2>
+
+        <img src=" {% static 'ngo_app/images/health.png' %}" alt="" class="image">
+
+        <p>
+            Proper nutrition and quality primary healthcare are essential for a child’s physical, mental and cognitive
+            development. Timely, regular and adequate intake of essential nutrition is necessary from the time of
+            conception itself to avoid long-term and in some cases, irreversible damage to the child’s health.<br>
+            <br>
+            We believe that no child should suffer from malnutrition or poor health irrespective of their socio-economic
+            background.<br>
+            <br>
+            Our health and nutrition programs adopt a preventative and responsive approach towards reducing
+            malnourishment as well as India’s infant mortality rate (IMR), child mortality rate (CMR) and maternal
+            mortality rate (MMR) by connecting communities to government services, schemes and benefits.<br>
+            <br>
+            Donatify NGO does this by focusing on the following:
+        </p>
+
+
+        <div class="flex-container">
+            <div class="item-div">
+
+                <h2 style="text-align:center">Prenatal & Postnatal Care</h2>
+                <p>Proper and timely care for expectant as well as lactating mothers is crucial for a child’s healthy
+                    development. Quality prenatal care that reduces the risk of pregnancy complications, institutional
+                    deliveries that aid healthy live births and regular postnatal check-ups that encourage breastfeeding
+                    are key areas of intervention.
+                </p>
+            </div>
+
+            <div class="item-div">
+                <h2 style="text-align: center;">Growth Monitoring</h2>
+                <p>Regular growth monitoring for children till the age of 6 years is imperative to ensure healthier
+                    childhoods. Creating awareness around infant and young child feeding (IYCF) practices,to enable
+                    equitable access to primary healthcare and ensuring the completion of immunization
+                    schedules to manage preventable diseases.
+                </p>
+            </div>
+
+            <div class="item-div">
+                <h2 style="text-align: center;">Learning Outcomes</h2>
+                <p>The effort to change behaviours and attitudes on the issues of children’s health and nutrition is
+                    most effective when introduced early. Engaging with adolescent girls and boys on topics like
+                    reproductive child health (RCH) helps in bringing about lasting generational change.
+                </p>
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- footer code starts -->
+    {% include 'ngo_app/common/footer.html' %}
+    <!-- footer code ends -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+        </script>
+
+</body>
+
+</html>

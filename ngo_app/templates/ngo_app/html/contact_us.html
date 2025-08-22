@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        .box {
+            width: 450px;
+            height: 440px;
+            border: 2px solid black;
+            background-color:rgb(233, 109, 130);
+            background-size: cover;
+            margin-top:6px;
+            padding:12px;
+            border-radius:12px;
+            /* box-shadow: 0 8px 16px rgb(0, 0, 0.8); */
+            
+        
+        }
+    </style>
+
+    {% include 'ngo_app/common/common_css.html' %}
+</head>
+
+<body style="background-color:#e9d2b7;">
+
+    <div class="main-div">
+
+
+        <div>
+            {% include 'ngo_app/common/header.html' %}
+
+            {% if messages %}
+            {% for m in messages %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert"
+                style="width:40%;margin:auto;text-align: center;">
+                <strong>{{ m }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+
+            {% endfor %}
+
+            {% endif %}
+
+
+            <div>
+
+                <!-- contact us form div start -->
+
+                <div class="container d-flex justify-content-center">
+                    <div style="padding:5px;">
+                        <img src="{% static 'ngo_app/images/Contact Us (3).gif' %}" alt="" style="margin-left:100px;">
+
+                        <form action="/contact/" method="post">
+                            {% csrf_token %}
+
+                            <div class="box">
+                                <div class="mb-3" style="font-weight: 600;">
+                                    <label for="name" class="form-label">NAME:</label>
+                                    <input type="name" class="form-control" placeholder="Enter name" name="name">
+                                </div>
+
+                                <div class="mb-3" style="font-weight: 600;">
+                                    <label for="email" class="form-label">EMAIL:</label>
+                                    <input type="email" class="form-control" placeholder="Enter email" name="email">
+                                </div>
+
+                                <div class="mb-3" style="font-weight: 600;">
+                                    <label for="number" class="form-label">PHONE NO.:</label>
+                                    <input type="number" class="form-control" placeholder="Enter phone number"
+                                        name="phone">
+                                </div>
+
+                                <label for="remarks" style="font-weight: 600;">QUESTIONS:</label>
+                                <textarea class="form-control" rows="2" name="query"></textarea>
+                                <br>
+
+                                <div class="d-grid" style="font-weight: 600;">
+                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <!-- contact us form div close -->
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    {% include 'ngo_app/common/footer.html' %}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+        </script>
+
+</body>
+
+</html>

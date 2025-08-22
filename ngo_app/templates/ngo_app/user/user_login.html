@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        .flex-container {
+            display: flex;
+            width: 100%;
+            gap: 40px;
+            justify-content: center;
+            margin-top:10px;
+
+            
+        }
+
+        .div-img {
+            width: 20%;
+            height: 380px;
+            /* border: 2px solid black; */
+            /* wsc=width,style,color. wsc is the short form of border.*/
+            border-radius: 10%;
+            box-shadow: 0 0 5px 5px rgb(82, 75, 75);
+            margin-left: 50px;
+            
+           
+
+
+        }
+
+        .div-form {
+            width: 33%;
+            height: 280px;
+            background-color:rgb(228, 126, 143);
+            /* border: 2px solid black; */
+            /* wsc=width,style,color. wsc is the short form of border.*/
+            padding: 70px;
+            margin-left: 40px;
+            margin-top: 45px;
+            border-radius: 20px;
+            box-shadow:0 0 5px 5px rgb(90, 88, 88);
+            padding-top: 80px;
+
+        }
+
+        .div-img img {
+
+            width: 100%;
+            height: 100%;
+            /* border: 2px solid black; */
+            /* wsc=width,style,color. wsc is the short form of border.*/
+            border-radius: 10%;
+
+        }
+    </style>
+
+    {% include 'ngo_app/common/common_css.html' %}
+
+</head>
+
+<body style="background-color:#e9d2b7;">
+    <!-- nav bar code starts -->
+    {% include 'ngo_app/common/header.html' %}
+    <!-- navbar code ends -->
+    {% if messages %}
+    {% for m in messages %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert"
+        style="width:50%;margin:auto;text-align: center;">
+        <strong>{{ m }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+
+    {% endfor %}
+
+    {% endif %}
+
+
+
+    <div class="main-div">
+        <div class="text-center" style="margin:auto;;">
+            <!-- <img src="{% static 'ngo_app/images/LOGIN (2).gif' %}" alt=""> -->
+           <h2 style="text-align:center;font-size: 60px;"><b>Login</b></h2>
+
+        </div>
+
+        <!-- flex box code starts -->
+        <div class="flex-container">
+            <div class="div-img">
+                <img src="{% static 'ngo_app/images/pic2.jpg' %}" alt="">
+
+            </div>
+
+            <div class="div-form">
+                <form action="/user_login/" method="post">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fa-regular fa-envelope"></i> </span>
+                        <input type="email" class="form-control" placeholder="Username" name="email" required>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fa-solid fa-key"></i> </span>
+                        <input type="password" class="form-control" placeholder="Userpassword" name="password" required>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- flex box code ends -->
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+    {% include 'ngo_app/common/footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+        </script>
+</body>
+
+</html>

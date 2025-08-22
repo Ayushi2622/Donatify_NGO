@@ -1,0 +1,75 @@
+{% load static %}
+<style>
+  .nav-link,.dropdown-item{
+    color:white !important;
+    font-size: 15px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 600;
+  }
+  .nav-item,.nav-link{
+    color:white !important;
+  }
+
+</style>
+
+
+<nav class="navbar navbar-expand-lg" style="background-color:rgb(225, 65, 105);">
+  <!-- Navbar content -->
+
+  <div class="container-fluid">
+   
+    <img src="{% static 'ngo_app/images/logo.png' %}"alt="" style="width:50px; height:50px; border-radius:20%">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact/">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user_registration/">Registration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/view_campaigns/">Campaigns</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li> -->
+         <li class="nav-item">
+          <a class="nav-link" href="/user_login/">Login</a>
+        </li>
+         <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li> -->
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Our Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:rgb(225, 65, 105);color:white">
+            <li><a class="dropdown-item" href="/education/">Education</a></li>
+            <li><a class="dropdown-item" href="/health/">Health & Nutrition</a></li>
+            
+            <li><a class="dropdown-item" href="/safety/">Safety & Protection</a></li>
+            <li><a class="dropdown-item" href="/participation/">Child Participation</a></li>
+          </ul>
+        </li>
+       
+      </ul>
+      <!-- <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-dark" type="submit">Search</button>
+      </form> -->
+    </div>
+  </div>
+</nav>

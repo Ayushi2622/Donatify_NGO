@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety & Protection</title>
+    <style>
+        p {
+            /* font-family:cursive; */
+            text-align: justify;
+            padding: 10px;
+            font-size: 25px;
+        }
+
+        .image {
+            width: 90%;
+            height: 400px;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 20px;
+            /* box-shadow: 0 0 5px 5px rgb(102, 8, 102); */
+            margin-left:65px;
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .flex-container {
+            display: flex;
+            width: 100%;
+            height: 550px;
+            /* background-color: rgb(207, 66, 207); */
+            flex-wrap: wrap;
+            padding-top: 25px;
+            gap: 40px;
+            padding-left: 40px;
+
+        }
+
+        .item-div {
+            width: 400px;
+            height: 500px;
+            background-color:lightpink;
+            /* margin-left: 20px; */
+            padding: 2px;
+            border: 2px solid black;
+            /* box-shadow:0 0 5px 5px rgb(102, 8, 102); */
+            /* font-family:cursive; */
+            border-radius: 20px;
+
+
+        }
+    </style>
+
+
+
+    {% include 'ngo_app/common/common_css.html' %}
+</head>
+
+<body style="background-color:#e9d2b7;">
+    <div class="main-div">
+        <!-- navbar code starts -->
+        {% include 'ngo_app/common/header.html' %}
+        <!-- navbar code ends -->
+        <h1 style="text-align: center;"><b>Safety & Protection</b></h1>
+        <h2 style="text-align:center">Right To Protection</h2>
+
+        <img src=" {% static 'ngo_app/images/safety.png' %}" alt="" class="image">
+
+
+        <p>All children are vulnerable to neglect, violence and abuse but marginalization further compounds such
+            vulnerability. Exposure to unsafe environments can negatively impact the physical, emotional, mental and
+            social development of the child and the damage is often permanent.<br>
+            <br>
+            We believe that building a safe environment for all children, till the age of 18 years, is critical to
+            protect them from abuse and exploitation.<br>
+            <br>
+            Donatify NGO’s child safety & protection programs focus on:
+        </p>
+
+        <div class="flex-container">
+            <div class="item-div">
+
+                <h2 style="text-align:center">Child Labour</h2>
+                <p>According to the International Labour Organization (ILO), child labour is generally defined as the
+                    practice of children prematurely leading adult lives, working long hours for low wages under
+                    hazardous conditions, often separated from their families and deprived of meaningful education
+                    opportunities.
+                </p>
+            </div>
+
+            <div class="item-div">
+                <h2 style="text-align: center;">Child Marriage</h2>
+                <p>Child marriage is one of the most prevalent forms of exploitation and sexual abuse – particularly
+                    with girls under the age of 18. The practice is widespread in India across all the states in varying
+                    degrees but more acutely in Rajasthan, Madhya Pradesh, Bihar and Uttar Pradesh.
+                </p>
+            </div>
+
+            <div class="item-div">
+                <h2 style="text-align: center;">Child Trafficking</h2>
+                <p>A form of human trafficking, child trafficking is understood as the kidnapping of a child for the
+                    purpose of slavery, forced labor and exploitation. In India, children are trafficked for different
+                    purposes including labour, commercial sexual exploitation, marriage, adoption and even organ
+                    trading.
+                </p>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <!-- footer code starts -->
+    {% include 'ngo_app/common/footer.html' %}
+    <!-- footer code ends -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+        </script>
+
+
+
+</body>
+
+</html>

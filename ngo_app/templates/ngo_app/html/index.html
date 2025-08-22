@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+
+    {% include 'ngo_app/common/common_css.html' %}
+    <style>
+        .w-100 {
+            height: 100vh;
+
+
+
+
+        }
+
+        .bgimg {
+            background-color:#e9d2b7 ;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+        }
+
+        .feedback-div {
+
+            display: flex;
+            margin-left: 50px;
+            flex-wrap: wrap;
+            /* margin-top: 30px; */
+
+        }
+
+        .feedback-card {
+
+            width: 280px;
+            height: 300px;
+            margin: 15px;
+            /* border: 3px solid red; */
+            border-radius: 10px;
+            transition: transform 0.5s;
+            box-shadow: 0 8px 16px rgb(0, 0, 0.8);
+            margin-bottom: 90px;
+            margin-top: 90px;
+            padding-top: 20px;
+
+        }
+
+        .feedback-card img {
+
+            width: 40%;
+            height: 40%;
+            /* margin-top: -80px; */
+            margin-left: 80px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            border: 2px solid black;
+            display: inline;
+            margin-right: 10px;
+
+        }
+
+        .feedback-card:hover {
+            transform: scale(1.1);
+            /*   box-shadow: 0 8px 16px rgba(220, 7, 7, 0.8); */
+            z-index: 10;
+            /* Bring the hovered card to the front */
+        }
+
+
+        h6 {
+
+            color:rgb(197, 22, 66);
+            font-family: Verdana;
+            /* text-align: center; */
+            margin-left: 10px;
+            margin-bottom: 0px;
+        }
+    </style>
+
+</head>
+
+<body class="bgimg">
+
+    <div class="main-div">
+
+        {% include 'ngo_app/common/header.html' %}
+        <div style="text-align: center;color: rgb(225, 65, 105); background-color:#e9d2b7;">
+            <h1 style="font-size: 50px;">Donatify NGO</h1>
+            <h2 style="margin-bottom: 0px;"> Be the Reason Someone Smiles Today😊😊 </h2>
+        </div>
+        <!-- carousel code starts -->
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'ngo_app/images/education3.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'ngo_app/images/pic1.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'ngo_app/images/pic12.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+        <!-- carousel code ends -->
+        <!-- <hr style="border:3px solid black"> -->
+
+
+        <!-- <div class="container" style="background-color:#e9d2b7;">
+
+        </div> -->
+
+        <div class="fluid-container d-flex justify-content-center" style="background-color:#e9d2b7;">
+            <h5 style="text-align:center; margin-bottom:0px;font-size:40px;color:rgb(225, 65, 105);margin-top:40px">Client's Feedback
+            </h5>
+        </div>
+
+
+        <div class="feedback-div" style="background-color:#e9d2b7;">
+            {% for f in feedback_key %}
+            <div class="feedback-card">
+                <img src="/media/{{f.profile_pic}}" alt="">
+                <h6> Rating:{{f.rating}}</h6>
+                <h6> Review:{{f.remarks}}</h6>
+                <h6> Posted By:{{f.name}}</h6>
+            </div>
+
+            {%endfor%}
+        </div>
+    </div>
+
+
+    {% include 'ngo_app/common/footer.html' %}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <style>
+        .image {
+            width: 90%;
+            height: 400px;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 20px;
+            /* box-shadow: 0 0 5px 5px rgb(102, 8, 102); */
+            margin-left:65px;
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+        }
+
+        p {
+            /* font-family:cursive; */
+            text-align: justify;
+            padding: 10px;
+            font-size: 25px;
+        }
+
+        .flex-container {
+            display: flex;
+            width: 100%;
+            height: 550px;
+            /* background-color: rgb(207, 66, 207); */
+            flex-wrap: wrap;
+            padding-top: 25px;
+            gap: 40px;
+            padding-left: 40px;
+
+        }
+
+        .item-div {
+            width: 400px;
+            height: 500px;
+            background-color: lightpink;
+            /* margin-left: 20px; */
+            padding: 2px;
+            border: 2px solid black;
+           /* box-shadow:0 0 5px 5px rgb(102, 8, 102); */
+            /* font-family:cursive; */
+            border-radius: 20px;
+            
+
+
+        }
+    </style>
+
+    {% include 'ngo_app/common/common_css.html' %}
+</head>
+
+<body style="background-color:#e9d2b7;">
+    <div class="main-div">
+
+        <!-- navbar code starts -->
+        {% include 'ngo_app/common/header.html' %}
+        <!-- navbar code ends -->
+
+
+
+        <h1 style="text-align:center;"><b>Education</b></h1>
+        <h2 style="text-align:center">Right To Development</b></h2>
+
+        <img src=" {% static 'ngo_app/images/child education.png' %}" alt="" class="image">
+
+
+        <p> A quality education not only builds knowledge,
+            capabilities, life skills and values amongst children but
+            also develops their creative, social and emotional abilities. It is crucial for their cognitive and
+            personal development, including critical thinking and problem-solving.<br>
+            <br>
+            We believe that every child should be able to go to school and complete their education without any
+            discrimination based on gender, caste or socio-economic status.<br>
+            <br>
+            Donatify NGO’s education programs focus on:
+        </p>
+
+
+
+        <div class="flex-container">
+            <div class="item-div">
+                <h2 style="text-align: center;">Early Childhood Education</h2>
+                <h3 style="text-align: center;">(0 – 3 Years)</h3>
+                <p> A child’s early years are the foundation for developing their future learning abilities. Research
+                    says that 80% of a child’s brain is developed by the age of 3, which makes early childhood education
+                    an essential building block of a child’s future success.
+                </p>
+
+
+            </div>
+            <div class="item-div">
+
+                <h2 style="text-align: center;">School Readiness</h2>
+                <h3 style="text-align: center;"> (3 – 6 Years) </h3>
+                <p> It has been observed that Anganwadi centres play a big role in preparing children for formal primary
+                    school. They help children develop the skills, knowledge and attitudes which are critical for them
+                    to succeed in school as well as late in life.
+                </p>
+
+
+            </div>
+            <div class="item-div">
+
+                <h2 style="text-align: center;">Learning Outcomes</h2>
+                <h3 style="text-align: center;"> (6 – 18 Years) </h3>
+                <p> Learning outcomes are influenced by children’s uninterrupted access to quality education. Ensuring
+                    that children are enrolled in school and don’t drop out before completing their education age
+                    appropriately is thus a critical area of intervention.
+                </p>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- footer code starts -->
+    {% include 'ngo_app/common/footer.html' %}
+    <!-- footer code ends -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+        </script>
+
+</body>
+
+</html>

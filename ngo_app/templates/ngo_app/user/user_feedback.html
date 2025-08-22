@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Page</title>
+
+    {% include 'ngo_app/common/common_css.html' %}
+    <style>
+        .box {
+            width: 500px;
+            height: 450px;
+            border: 2px solid black;
+            margin: auto;
+            /* margin-top:70px; */
+            padding:80px;
+            background-color: rgb(255, 120, 141);
+            
+            
+
+        }
+
+        /* .bgimg { */
+            /* background-image:url("{% static 'ngo_app/images/ngobg3.png' %}"); */
+            /* background-color:pink; */
+            /* background-repeat: no-repeat; */
+            /* background-position: center; */
+            /* background-size: cover; */
+
+         /* }  */
+    </style>
+</head>
+
+<body style="background-color:#e9d2b7;">
+    {% include 'ngo_app/user/user_header.html' %}
+
+    <div class="main-div">
+    
+
+
+        <h2 style="text-align: center; color:rgb(225, 65, 105);margin-top: 50px;"> FEEDBACK FORM </h2>
+            {% if messages %}
+        {% for m in messages %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width:50%;margin:auto;text-align: center;">
+            <strong>{{ m }}</strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+                    
+             
+        {% endfor %}
+        {% endif %}
+        <div class="container-fluid d-flex justify-content-center;">
+            <div class="box" style="padding:20px;padding-bottom:50px;border-radius: 12px;margin-top:20px;padding-top:30px">
+
+                <form method="post" action="/user_feedback/">
+                    {% csrf_token %}
+
+                    <div class="mb-3 mt-3">
+                        <label for="name" class="form-label" style="font-weight: 600;">NAME:</label>
+                        <input type="text" required class="form-control" id="name" placeholder="Enter name" name="name">
+                    </div>
+
+                    <!-- <div class="mb-3">
+                        <label for="email" class="form-label" style="font-weight: 600;">EMAIL:</label>
+                        <input type="email" required class="form-control" id="email" placeholder="Enter email"
+                            name="email">
+                    </div> -->
+
+                    <label for="rating" class="form-label" style="font-weight: 600;">SELECT RATING:</label>
+                    <select class="form-select" required name="rating">
+                        <option value="⭐">⭐</option>
+                        <option value="⭐⭐">⭐⭐</option>
+                        <option value="⭐⭐⭐">⭐⭐⭐</option>
+                        <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+                        <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+                    </select><br>
+
+                    <label for="remarks" style="font-weight: 600;">REMARKS:</label>
+                    <textarea class="form-control" rows="3" name="remarks" input type="text" required></textarea><br>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-block"
+                            style="font-weight: 600;">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!-- footer code starts -->
+    {% include 'ngo_app/common/footer.html' %}
+    <!-- footer code ends -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+        </script>
+
+
+</body>
+
+</html>

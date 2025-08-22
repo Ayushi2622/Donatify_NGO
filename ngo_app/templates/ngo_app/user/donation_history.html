@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation History</title>
+    <style>
+       tr{
+            text-align: center;
+           
+        }
+        th{
+            font-weight: 600;
+            /* border:3px solid lightblue; */
+            
+        }
+
+        /* table,th,tr{
+
+            border-collapse: collapse;
+            border-color:brown!important;
+           
+        } */
+    </style>
+
+
+    {% include 'ngo_app/common/common_css.html' %}
+</head>
+
+<body style="background-color:#e9d2b7;">
+    <!-- navbar code starts -->
+    {% include 'ngo_app/user/user_header.html' %}
+    <!-- navbar code ends -->
+    <div class="main-div">
+        <h1 style="margin-top:60px;text-align: center;color:rgb(225, 65, 105)"><b>DONATION HISTORY</b> </h1>
+        <table class="table table-bordered border-primary">
+
+            <thead>
+                <tr>
+                    <th scope="col">NAME</th>
+                    <th scope="col">AMOUNT</th>
+                    <th scope="col">TRANSACTION ID</th>
+                    <th scope="col">STATUS</th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+                {% for d in donation_key %}
+                <tr>
+                    <th>{{d.user.name}}</th>
+                    <th>{{d.amount}}</th>
+                    <th>{{d.transaction_id}}</th>
+                    <th>{{d.paymentstatus}}</th>
+                </tr>
+                {%endfor%}
+
+
+            </tbody>
+
+        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <!-- footer code starts -->
+    {% include 'ngo_app/common/footer.html' %}
+    <!-- footer code ends -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+        </script>
+
+</body>
+
+</html>

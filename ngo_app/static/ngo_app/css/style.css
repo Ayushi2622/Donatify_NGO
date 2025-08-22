@@ -1,0 +1,21 @@
+body,html
+{
+
+    min-height:100vh;     /* vh is viewport height */
+    display:flex;
+    flex-direction:column;
+    /* background-color: rgb(192, 69, 90); */
+}
+
+.main-div{
+flex:1;         /*sets the flex acc to the content on the page i.e, grow and shrink for taking the footer to bottom. */
+
+}
+
+*{
+  
+  box-sizing:border-box;
+  /* color:red */
+  /* background-color: rgb(192, 69, 90); */
+  
+}

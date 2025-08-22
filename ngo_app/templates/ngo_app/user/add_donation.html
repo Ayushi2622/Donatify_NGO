@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation</title>
+    <style>
+        .box {
+            width: 450px;
+            height: auto;
+            border: 2px solid black;
+            margin: auto;
+            /* margin-top:70px; */
+            padding: 80px;
+            background-color:rgb(255, 120, 141);
+                                      
+        }
+    </style>
+
+    {% include 'ngo_app/common/common_css.html' %}
+</head>
+
+<body style="background-color:#e9d2b7;">
+    <!-- navbar code starts -->
+    {% include 'ngo_app/user/user_header.html' %}
+    <!-- navbar code ends -->
+    <div class="main-div">
+       
+
+        <h2 style="text-align: center; color:rgb(225, 65, 105);margin-top: 50px; "> DONATION FORM </h2>
+          {% if messages %}
+        {% for m in messages %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width:50%;margin:auto;text-align: center;">
+            <strong>{{ m }}</strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+                    
+             
+        {% endfor %}
+        {% endif %}
+        <div class="container-fluid d-flex justify-content-center;">
+            <div class="box"
+                style="padding:20px;margin-top:20px;padding-bottom:50px;border-radius: 12px;margin-top:20px">
+
+                <form method="post" action="/add_donation/" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="mb-3 mt-3">
+                        <label for="amount" class="form-label" style="font-weight: 600;">Amount:</label>
+                        <input type="number" required class="form-control" id="amount" placeholder="Enter Amount"
+                            name="amount">
+                    </div>
+                    <div id="qr-container" class="mt-4" style="display: none;">
+                        <img id="qr-image" src="" alt="QR Code" class="img-fluid"
+                            style="max-width: 200px; margin-top: 10px;">
+                    </div>
+
+
+                    <div class="d-grid">
+                        <button type="submit" id="generate_qr" class="btn btn-primary btn-block"
+                            style="font-weight: 600;">Generate QR
+                            Code</button>
+                    </div>
+
+                    <label for="inputcourse" class="col-sm-2 col-form-label" style="font-weight: 600;">Aadhar:</label>
+                    <div class="input-group">
+                        <input type="file" class="form-control" id="inputGroupFile04"
+                            aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="aadhar">
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="transaction id" class="form-label" style="font-weight: 600;">Transaction ID:</label>
+                        <input type="number" required class="form-control" id="transaction"
+                            placeholder="Enter your Transaction ID" name="transaction_id">
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-block"
+                            style="font-weight: 600;">Submit</button>
+                    </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+    </div>
+    <!-- footer code starts -->
+    {% include 'ngo_app/common/footer.html' %}
+    <!-- footer code ends -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+        </script>
+
+    <script>
+        document.getElementById('generate_qr').addEventListener('click', function (event) {
+            event.preventDefault();  // Prevent form submit
+            const amount = document.querySelector('input[name="amount"]').value;
+            if (!amount) {
+                alert("Please enter an amount.");
+                return;
+            }
+
+            fetch('/generate_qr/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: `amount=${encodeURIComponent(amount)}`
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.image) {
+                        const imgTag = document.getElementById('qr-image');
+                        imgTag.src = 'data:image/png;base64,' + data.image;
+                        document.getElementById('qr-container').style.display = 'block';
+                    } else {
+                        alert("Failed to generate QR code.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("Error generating QR code.");
+                });
+        });
+    </script>
+
+</body>
+
+</html>
