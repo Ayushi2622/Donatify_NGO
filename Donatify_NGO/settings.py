@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-p&yid9o8)*y%_++_9j4!!cw792056z6k_%=ual*&ahk(gkef)*
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_ORIGIN', 'https://donatify-ngo-3-10x4.onrender.com')]
+CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_ORIGIN', 'https://donatify-ngo-4-0avs.onrender.com')]
 
 
 # Application definition
